@@ -1,0 +1,16 @@
+1. Include a short explanation of your design choices and how your system can be easily extended to support new
+drone types or manufacturers.
+I used Factory Pattern for the Drone and Drone Factory creation, then I used Abstract Factory Pattern to abstract the
+creation of drones based on specified manufacturers, having their own details/specialties. You can add new drones and
+manufacturers more easily without altering existing code too much. This is because of all the separation we did using
+factories.
+
+2. If I want to extend the program by adding RescueDrones and ManufacturerC as new elements, how would they be
+integrated into your codebase? What design features make the codebase easier to extend?
+To make a new Drone like RescueDrone you would implement the Drone class and associated factory methods through its own class.
+We would have to add it as an option for the manufacturers and to the DroneFactory interface. It could have its own
+special features (like payload capacity, navigation system, high-quality cameras) depending on
+its manufacturers as well. To make a new ManufacturerFactory like ManufacturerC you would implement the ManufacturerFactory
+interface and associated drone creation methods. This new manufacturer might be better at optimizing battery life
+and travel distance. Having so many interfaces and abstracting the factories makes it easier to extend/add new drones
+and manufacturers.
